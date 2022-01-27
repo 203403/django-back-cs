@@ -1,9 +1,9 @@
 from rest_framework import routers, serializers, viewsets
 
-# Importacion de modelos
+#Importancion de modelos
 from primerComponente.models import PrimerTabla
 
 class PrimerTablaSerializer(serializers.ModelSerializer):
-    class meta:
+    class Meta:
         model = PrimerTabla
-        fields = ("nombre", "edad")
+        fields = ('__all__')
