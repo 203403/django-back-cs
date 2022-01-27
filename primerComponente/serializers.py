@@ -6,4 +6,4 @@ from primerComponente.models import PrimerTabla
 class PrimerTablaSerializer(serializers.ModelSerializer):
     class Meta:
         model = PrimerTabla
-        fields = ('__all__')
+        fields = ("id", "nombre", "edad")
