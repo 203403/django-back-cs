@@ -16,6 +16,11 @@ pip install django-filter
 pip install python-dotenv
 ```
 
+## Intalacion de Python Imaging Library
+```bash
+pip install pillow
+```
+
 ## Agregar la libreria a INSTALLED_APPS en settings
 ```bash
 'rest_framework',
