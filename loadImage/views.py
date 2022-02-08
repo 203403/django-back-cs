@@ -95,7 +95,7 @@ class TablaImagesDetail(APIView):
             idResponse.delete()
             responseOk = self.responseCustom("Datos eliminados", "success", status.HTTP_201_CREATED)
             return Response(responseOk)
-        responseOk = self.responseCustom(idResponse.errors, "error", status.HTTP_400_BAD_REQUEST)
+        responseOk = self.responseCustom("no hay datos", "error", status.HTTP_400_BAD_REQUEST)
         return Response(responseOk)
     
     def responseCustom(self, data, respuesta, status):
