@@ -64,4 +64,4 @@ class PrimerTablaDetail(APIView):
         if idResponse !="No existe":
             idResponse.delete()
             return Response("Datos eliminado", status = status.HTTP_201_CREATED)
-        return Response(idResponse.errors,status = status.HTTP_400_BAD_REQUEST)
+        return Response("error",status = status.HTTP_400_BAD_REQUEST)
