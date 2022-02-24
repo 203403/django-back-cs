@@ -21,10 +21,23 @@ pip install python-dotenv
 pip install pillow
 ```
 
+## Instalación de la libreria django CORS headers
+```
+pip install django-cors-headers
+```
+
 ## Agregar la libreria a INSTALLED_APPS en settings
 ```bash
 'rest_framework',
 ```
 ```bash
 'rest_framework.authtoken',
+```
+```bash
+'corsheaders',
+```
+
+## Agregar sobre el Middleware en settings
+```bash
+'corsheaders.middleware.CorsMiddleware',
 ```
