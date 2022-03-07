@@ -10,8 +10,6 @@ class ProfileTable(models.Model):
         primary_key=True,
         )
     url_img = models.ImageField(null = True, blank=True, default = '', upload_to="img_profile/")
-    created = models.DateTimeField(default=timezone.now)
-    edited = models.DateTimeField(blank=True, null=True, default=None)
     
     class Meta:
         managed = True

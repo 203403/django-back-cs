@@ -8,4 +8,4 @@ from Profile.models import ProfileTable
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProfileTable
-        fields = ('username', 'email', 'first_name', 'last_name','user_id', 'url_img')
+        fields = ('__all__')
