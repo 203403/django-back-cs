@@ -45,6 +45,7 @@ class PrimerTablaDetail(APIView):
 
     def get(self, request,pk, format=None):
         idResponse = self.get_object(pk)
+        print(idResponse)
         if idResponse != 0:
             idResponse = PrimerTablaSerializer(idResponse)
             return Response(idResponse.data, status = status.HTTP_200_OK)

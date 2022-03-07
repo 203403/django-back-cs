@@ -54,7 +54,6 @@ class TablaListImg(APIView):
 class TablaImagesDetail(APIView):
     def get_object(self, pk):
         try:
-            print(TablaImages.objects.get(pk = pk))
             return TablaImages.objects.get(pk = pk)
         except TablaImages.DoesNotExist:
             return 0
