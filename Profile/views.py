@@ -16,19 +16,6 @@ import json
 
 # Create your views here.
 
-
-class CreateNewProfile(APIView):
-    def post(self, request):
-        serializer = ProfileSerializer(data=request.data)
-        if serializer.is_valid():
-            validated_data = serializer.validated_data
-            profileInitial = ProfileTable(**validated_data)
-            profileInitial.save()
-            serializerResponse = ProfileSerializer(profileInitial)
-            return Response("success", status=status.HTTP_200_OK)
-        return Response("Error: No es puede procesar la solicitud", status=status.HTTP_400_BAD_REQUEST)
-
-
 class LoadProfileImage(APIView):
 
     def get_object(self, pk):
@@ -36,6 +23,16 @@ class LoadProfileImage(APIView):
             return ProfileTable.objects.get(pk=pk)
         except ProfileTable.DoesNotExist:
             return 0
+
+    def post(self, request):
+        serializer = ProfileSerializer(data=request.data)
+        if serializer.is_valid():
+            validated_data = serializer.validated_data
+            profileInitial = ProfileTable(**validated_data)
+            profileInitial.save()
+            serializerResponse = ProfileSerializer(profileInitial)
+            return Response("success", status = status.HTTP_200_OK)
+        return Response("Error: No es puede procesar la solicitud", status = status.HTTP_400_BAD_REQUEST)  
 
     def put(self, request, pk, format=None):
         idResponse = self.get_object(pk)
@@ -49,7 +46,7 @@ class LoadProfileImage(APIView):
             serializer = ProfileSerializer(idResponse)
             idResponse.url_img = file
             idResponse.save()
-            return Response("success", status =status.HTTP_200_OK)
+            return Response("success", status = status.HTTP_200_OK)
         return Response("Error: No es puede procesar la solicitud", status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk):
